@@ -8,19 +8,41 @@
 <body>
   <div id="exercise">
     <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
-    <p>VueJS is pretty cool - YOUR_NAME (AGE)</p>
+    <p>VueJS is pretty cool - {{ name }} ({{ age }})</p>
     <!-- 2) Output your age, multiplied by 3 -->
-    <p></p>
-    <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
-    <p></p>
+    <p>My age multiplied by 3 is {{ age * 3 }}.</p>
+    <!-- 3) Call a function to output a random float between 0 and 100 (Math.random()) -->
+    <p>A random number between 0 and 100: {{ random(100) }}</p>
     <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
     <div>
-      <img style="width:100px;height:100px">
+      <img v-bind:src="imageSrc" v-bind:alt="imageAlt">
     </div>
     <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
     <div>
-      <input type="text">
+      <input type="text" v-bind:value="name" v-on:input="updateName">
+      <!-- Added a janky two way binding...-->
+      <!-- But, an easier two-way binding is v-model -->
+      <input type="text" v-model="name">
     </div>
   </div>
+  <script>
+    new Vue({
+      el: '#exercise',
+      data: {
+        name:     'Wally Glutton',
+        age:      40,
+        imageSrc: 'http://stungeye.com/images/eye.jpg',
+        imageAlt: 'Stung Eye'
+      }, 
+      methods: {
+        random: function(max) { 
+          return Math.floor(Math.random() * (max + 1) ); 
+        },
+        updateName: function(event) {
+          this.name = event.target.value;
+        }
+      }
+    });
+  </script>
 </body>
 </html>
