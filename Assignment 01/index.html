@@ -19,9 +19,9 @@
     </div>
     <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
     <div>
-      <input type="text" v-bind:value="name" v-on:input="updateName">
       <!-- Added a janky two way binding...-->
-      <!-- But, an easier two-way binding is v-model -->
+      <input type="text" v-bind:value="name" v-on:input="updateName">
+      <!-- But, looked up an easier two-way binding: v-model -->
       <input type="text" v-model="name">
     </div>
   </div>
