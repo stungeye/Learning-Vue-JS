@@ -10,8 +10,8 @@ Notes and code written while working my way through the [Vue Js 2, the Complete 
 
 ### Directives
 
-* v-on:<event>="<data>"
-* v-bind:<attribute>="<data/method>"
-* v-model="<data>"
-* v-html="<data>
+* v-on:\<event\>="\<method\>"
+* v-bind:\<attribute\>="\<data/method\>"
+* v-model="\<data\>"
+* v-html="\<data/method\>
 * v-once
